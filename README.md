@@ -1,112 +1,96 @@
-# Test Dry Telecom
+# 📦 Calculo de Frete via CEP
 
-Aplicação simples para consulta de valor de frete via CEP, construída com React, TypeScript e Node.js. Utiliza React Hook Form e Zod para validação, Axios para comunicação HTTP, além de uma API Express para o backend.
+Este projeto é uma aplicação full stack que permite consultar o valor do frete a partir de um CEP informado. Desenvolvido como parte de um desafio técnico, ele demonstra habilidades em desenvolvimento backend com Node.js e Express, além de frontend com React e TypeScript.
 
----
+## 🚀 Funcionalidades
 
-## Visão Geral
+- **Consulta de Frete**: O usuário informa um CEP e recebe o valor do frete correspondente.
+- **Validação de CEP**: O sistema valida o formato do CEP antes de processar a consulta.
+- **Interface Intuitiva**: Frontend com campo de entrada estilizado em formato OTP para melhor usabilidade.
 
-Este projeto permite que o usuário consulte o valor do frete a partir do CEP informado. O frontend envia a requisição para uma API local que retorna os dados do endereço e o custo do frete correspondente.
+## 🛠️ Tecnologias Utilizadas
 
-A interface apresenta um campo de entrada de CEP estilizado em formato OTP para melhor usabilidade.
+### Backend
 
----
+- **Node.js**: Ambiente de execução JavaScript no servidor.
+- **Express.js**: Framework para construção de APIs RESTful.
+- **Axios**: Cliente HTTP para comunicação com APIs externas.
 
-## Tecnologias Utilizadas
+### Frontend
 
-- **Frontend:** React 18 (Next.js), TypeScript, React Hook Form, Zod, Axios, Sonner (notificações), Tailwind CSS, Shadcn/ui  
-- **Backend:** Node.js com Express, Axios  
+- **React 18 (Next.js)**: Biblioteca para construção de interfaces de usuário.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+- **React Hook Form**: Gerenciamento de formulários no React.
+- **Zod**: Validação de esquemas de dados.
+- **Axios**: Cliente HTTP para requisições ao backend.
+- **Tailwind CSS**: Framework de estilos utilitários.
+- **Shadcn/ui**: Componentes de interface reutilizáveis.
+- **Sonner**: Biblioteca para notificações.
 
----
+## 📁 Estrutura do Projeto
 
-## Estrutura do Projeto
+- `backend/`: Contém a API Express que consome a [API do melhor envio](https://docs.melhorenvio.com.br/reference/introducao-api-melhor-envio) que possibilita alterar a regra de cobrança do frete.
+- `frontend/`: Aplicação Next.js que fornece a interface para o usuário.
+  - `src/pages/index.tsx`: Página principal com o formulário de consulta de frete.
+  - `src/components/ui/`: Componentes reutilizáveis de interface.
+  - `src/lib/`: Funções auxiliares e definições de tipos.
 
-- `src/pages/index.tsx` – Página principal com formulário de consulta de frete  
-- `src/components/ui/` – Componentes reutilizáveis de interface  
-- `src/lib/` – Funções auxiliares e tipos TypeScript  
-- **API backend:** Endpoint `/frete` que retorna dados de frete com base no CEP informado  
+## 🔧 Como Executar o Projeto
 
----
+### Pré-requisitos
 
-## Como Executar Localmente
+- Node.js instalado na máquina.
+- Gerenciador de pacotes npm ou yarn.
+
+### Passos
 
 1. Clone o repositório:
 
-```bash
-git clone https://github.com/viniblack/test-dry-telecom.git
-cd test-dry-telecom
-```
+   ```bash
+   git clone https://github.com/viniblack/api-express.git
+   ```
 
-2. Instale as dependências:
+2. Instale as dependências do backend:
 
-**Frontend:**
+   ```bash
+   cd api-express/backend
+   npm install
+   ```
 
-```bash
-cd frontend
-npm install
-# ou yarn install
-```
+3. Inicie o servidor backend:
 
-**Backend:**
+   ```bash
+   npm run start
+   ```
 
-```bash
-cd backend
-npm install
-# ou yarn install
-```
+4. Em outro terminal, instale as dependências do frontend:
 
-3. Execute a aplicação:
+   ```bash
+   cd ../frontend
+   npm install
+   ```
 
-**Backend:**
+5. Inicie o servidor frontend:
 
-```bash
-nodemon index.js
-```
+   ```bash
+   npm run dev
+   ```
 
-**Frontend:**
+6. Acesse a aplicação no navegador:
 
-```bash
-npm run dev
-# ou yarn dev
-```
+   ```
+   http://localhost:3000
+   ```
 
-4. Verifique que a API esteja rodando em `http://localhost:5000/frete` para o funcionamento correto da consulta.
+## 📝 Desafio Técnico
 
----
+O desafio envolvia construir uma solução robusta e escalável para cálculo de frete com base em dois CEPs. Optei por separar a aplicação em frontend e backend, garantindo manutenibilidade, e utilizei ferramentas modernas como TypeScript, validação com Zod e estilização com Tailwind CSS para uma boa experiência do usuário.
 
-## Como Usar
+## 📬 Contato
 
-- Insira um CEP válido (8 dígitos) no campo de entrada.  
-- Clique em **Calcular**.  
-- O valor do frete e informações do endereço serão exibidos abaixo do formulário.  
-- Em caso de CEP inválido, uma mensagem de erro aparecerá via notificação.
+Caso tenha interesse em discutir mais sobre este projeto ou oportunidades na área de desenvolvimento, estou à disposição!
 
----
+- **Email**: [viniciusslsantana@gmail.com.com](mailto:viniciusslsantana@gmail.com)
+- **LinkedIn**: [linkedin.com/in/viniblack](https://linkedin.com/in/viniblack)
 
-## Exemplo de Resposta da API
-
-```json
-{
-  "cep": "06243-110",
-  "logradouro": "Rua Rocha Pombo",
-  "bairro": "Jardim Elvira",
-  "localidade": "Osasco",
-  "uf": "SP",
-  "valor_frete": "7.00"
-}
-```
-
----
-
-## Validações e Feedback
-
-- O CEP deve conter exatamente 8 dígitos numéricos.  
-- Notificações (toasts) exibem sucesso ou erros durante a consulta.  
-
----
-
-## Próximas Melhorias
-
-- Validar CEP diretamente usando API oficial dos Correios.  
-- Criar testes unitários e end-to-end.  
-- Integrar com uma API real de cálculo de frete.
+> Este projeto demonstra minha capacidade de resolver desafios reais com boas práticas, organização de código e foco na experiência do usuário. Ideal para contextos que exigem soluções escaláveis e bem estruturadas.
